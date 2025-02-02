@@ -10,7 +10,6 @@ function hide(obj) {
     obj.classList.add("hidden")
 }
 
-
 const BLOKKOK_SZAMA = 12
 var KERDESEK_SZAMA = SOROK_DATA.length - BLOKKOK_SZAMA
 
@@ -290,9 +289,10 @@ function new_game() {
 
     hide(document.getElementById("new-game-button"))
     show(document.getElementById("next-question-button"))
+
+    hide(document.getElementById("version"))
     
     // reset vars
-    fela_indexek = randints_range(fela_szama)
     alreadyTested = false
     testResult = false
     esemeny_valaszok = [false, false, false, false]
@@ -300,8 +300,15 @@ function new_game() {
     fela_ctr = -1
     fela_pontszam = 0
 
-    //
+    if (fela_szama == 298) {
+        shuffle(CONST_INDEX_POOL)
+        fela_indexek = CONST_INDEX_POOL
+    } else {
+        fela_indexek = randints_range(fela_szama)
+    }
+    
     // teszthez:
+    //fela_indexek = [19,19,19,19,19,200]
     //fela_indexek = [20,118,143,20,118,143]
     //fela_indexek = [5,13,41,44,5,13,41,44,5,13]
 
@@ -520,7 +527,7 @@ function select_game() {
     hide(document.getElementById("game-div"))
     hide(document.getElementById("game-stats-div"))
 
-    //set_game_mode("esemeny")
+    show(document.getElementById("version"))
 }
 
 function submit_input(showAns = false) {
@@ -590,7 +597,7 @@ function show_ans() {
 
 function get_ymd(s) { // s:string
     s = s.trim().split('.')
-    //print(s)
+    
     ymd = {"y":0,"m":0,"d":0}
 
     if (s.length == 0) {
@@ -722,7 +729,7 @@ function test_input() {
 
                 if (spec_index == 20) { // jezus elete
                     print("case20")
-                    if (txt.search(/.{0,}6.{0,}:.{0,}29.{0,}\/.{0,}31/) == -1) {
+                    if (txt.search(/.{0,}6.{0,}:.{0,}29.{0,}\/.{0,}31.{0,}/) == -1) {
                         print("629/31 regex fail -> helytelen")
                         return false;
                     } else if (!txt.includes('-') && txt.search(/.{0,}k.{0,}r.{0,}e.{0,}/) == -1 ) {
@@ -746,13 +753,13 @@ function test_input() {
 
                 } else {print("SPEC HIBA");return true}
             }
-            else // ha nem flagSpec
-            {
         
             if (flagKre) {
                 // alterelni a kr.e. szoveg osszes variaciojat egy - jelre
                 // regex kellene
-                let pattern = /k.{0,}r.{0,}e\s{0,1}/g
+                txt = txt.replace(/r\x2e/g,'r')
+                txt = txt.replace(/e\x2e/g,'e')
+                let pattern = /k.{0,}r.{0,}e/g
                 if (txt.search(pattern) != -1) {
                     txt = txt.replace(pattern, "-")
                 } else if (txt.includes('-')) {
@@ -760,6 +767,7 @@ function test_input() {
                     txt = txt.replace(pattern, '-')
                 }
                 else {return false } // ha nincs benne kre vagy minuszjel nem lehet jo
+                txt = txt.replace(' ','')
                 print("kre szuro megvolt: "+txt)
             }
 
@@ -771,22 +779,28 @@ function test_input() {
                 let valasz_ev = valasz.split('s')[0] // pl. -5sz -> -5
                 txt = txt.replace(/\s{0,}sz.{0,}/g, "sz")
 
-                if (!txt.includes("sz")) {return false} // ha nincs benne legalabb a "sz" akkor nemjo
-                else if (!txt.includes(valasz_ev) && !txt.includes(ROMAI_FORMAT[ Math.abs(Number(valasz_ev)) -1])) 
-                    {return false} // ha nincs benne a valasz szam vagy romai szam akkor nemjo
+                if (!txt.includes("sz")) {
+                    return false // ha nincs benne legalabb a "sz" akkor nemjo
+                } 
+                else if (!txt.includes(valasz_ev) && !txt.includes(ROMAI_FORMAT[ Math.abs(Number(valasz_ev)) -1])) {
+                    return false
+                    // ha nincs benne a valasz szam vagy romai szam akkor nemjo
                     // kre teszt mar lefutott az elejen
                 } else {
                     print("szazad bele van irva szuper")
                 }
-
             }
+
+            
             if (flagKorul) { // egyszeru, mert nincs szazad-tolig kombo
                 let valasz_ev = valasz.split('c')[0] // leszedi a c-t a vegerol
                 txt = txt.replace(/\s{1,}c\s{1,}/g, "c")
                 txt = txt.replace(/\s{1,}k.{0,}/g, "c") // ha valaki azt irja hogy 'c' vagy azt hogy 'korul', akkor is jo az ellenorzes
                 if (txt.includes("c") && txt.includes(valasz_ev)) {
                     print("korul bele van irva szuper")
-                } else {return false}
+                } else {
+                    return false
+                }
             }
             
 
@@ -796,6 +810,7 @@ function test_input() {
                 if (!flagKre && txt.includes('-')) { // ha nincs kr.e. evszam, lehet hasznalni kotolejet is
                     txt = txt.replace(/\s{0,}-\s{0,}/g,':')
                 }
+                txt = txt.replace(/\s/g,'')
 
                 let tolig_split
                 let valasz_tolig_ymd = {"tol":{},"ig":{}};
@@ -833,7 +848,9 @@ function test_input() {
 
                 return compare_ymd( valasz_ymd, txt_ymd ) 
             }
-        } else { // if (flagNormal)
+        } 
+        else // if (flagNormal)
+        { 
             print("normál")
             if (txt.includes('-') || -1 != txt.search(/.{0,}k.{0,}r.{0,}e.{0,}/)) {
                 // ha van benne kr.e. notation
