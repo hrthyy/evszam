@@ -1,0 +1,149 @@
+/* ABSZTRAKT */
+
+:root {
+    --tx_barna1: #4d2800;
+    --tx_barna2: #331a00;
+    --tx_feher1: #f2f2f2;
+
+    --bg_barna1: #f9d6a4;
+
+    --btn_1: #ffecb3;
+    --btn_2: #ffdf80;
+    --btn_3: #ffd24d;
+}
+
+.hidden {
+    display:none;
+}
+
+.helyes {
+    color: green;
+}
+.helytelen {
+    color: red;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* main style, menu, gombok, szoveg */
+
+#title-h1, #title-h2 {
+    text-align: center;
+    color: var(--tx_feher1);
+    text-shadow: 3px 3px 2px var(--tx_barna1);
+    font-size: 42px;
+    margin: 0;
+}
+#title-h2 {
+    font-size: 32px;
+}
+
+body {
+    background-image: url("assets/img/main_bg.png");
+    color: var(--tx_barna1);
+}
+
+.content-menu {
+    background-color: var(--bg_barna1);
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    text-align: left;
+    padding: 20px;
+}
+
+.content-menu button {
+    background-color: var(--btn_1);
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.game-mode-button {
+    color: black;
+}
+.game-mode-button:enabled {
+    border: 1px solid black;
+    background-color: var(--btn_1);
+}
+.game-mode-button:disabled {
+    border: 2px solid black;
+    font-weight: bold;
+    background-color: var(--btn_2);
+}
+
+
+.content-menu button:active {
+    font-weight: bold;
+    background-color: var(--btn_3);
+}
+
+#game-start {
+    text-align: center;
+}
+
+#start-button {
+    width: 50%;
+    font-size: 26px;
+}
+
+
+#game-settings-questions label {
+    font-size: 20px;
+}
+
+#game-settings-questions input {
+    accent-color: var(--tx_barna1);
+}
+
+/* game div */
+
+#game-nav-buttons {
+    width: 90%;
+}
+.game-nav-button {
+    display: inline-block;
+}
+
+
+/* evszam mode */
+
+#evszam-input-div {
+    padding: 12px;
+}
+
+#evszam-input {
+    margin: 5% 0% 10% 0%;
+    font-size: 24px;
+}
+
+#helyes-evszam {
+    font-size: 24px;
+}
+
+
+/* esemeny mode */
+
+
+.esemeny-input-cont {
+    padding: 10px;
+    border: 2px solid var(--tx_barna1);
+    margin: 5px 0 5px 0;
+    text-align: left;
+}
+
+.esemeny-checkbox {
+    margin: 1px 0 1px 0;
+    width: 10%;
+    clear: bottom;
+}
+
+.esemeny-input-cont span {
+    font-size: 24px;
+}
+
+/* stats menu */
+

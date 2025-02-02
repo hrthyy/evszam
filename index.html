@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100% Évszám</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <script defer src="sorok_data.js"></script>
+    <script defer src="tipusok_data.js"></script>
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="select_game();">
+    <h1 id="title-h1">100% ÉVSZÁM</h1>
+    <h2 id="title-h2">Töri évszám gyakorló</h2>
+    <br>
+
+    <div id="game-settings" class="content-menu">
+        <div id="game-settings-questions">
+            <h2>Mennyi kérdés?</h2>
+            <input type="radio" id="q10-button" name="qcount" value="10" checked>
+            <label for="q10-button">10 kérdés</label><br>
+            <input type="radio" id="q25-button" name="qcount" value="25" >
+            <label for="q25-button">25 kérdés</label><br>
+            <input type="radio" id="q50-button" name="qcount" value="50">
+            <label for="q50-button">50 kérdés</label><br>
+            <input type="radio" id="q100-button" name="qcount" value="100">
+            <label for="q100-button">100 kérdés</label><br>
+        </div>
+
+        <div id="game-settings-mode">
+            <h2>Mi legyen kérdezve?</h2>
+            <button class="game-mode-button" disabled type="button" id="mode-evszam-button" onclick="set_game_mode('evszam');">évszám</button>
+            <button class="game-mode-button" type="button" id="mode-esemeny-button" onclick="set_game_mode('esemeny');">esemény</button>
+        </div>
+
+        <div id="game-start">
+            <hr>
+            <button type="button" id="start-button" onclick="new_game();">Indítás!</button>
+        </div>
+    </div>
+
+    <div id="game-stats-div" class="content-menu hidden">
+        <p id="game-stats-p">Vége.</p>
+        <h2 id="game-stats-points"></h2>
+        <button type="button" id="new-game-button" onclick="select_game();">új játék</button>
+    </div>
+
+
+    <div id="game-div" class="content-menu hidden">
+        <h2 id="question-number">--sorszam--</h2>
+        <h3 id="question-type">--hogyan--</h3>
+        <h2 id="question-title">--kerdes--</h2>
+
+        <div id="game-input-div">
+
+            <div id="esemeny-input-div">
+                <div onclick="toggleEsemeny(1)" class="esemeny-input-cont" id="esemeny-input-cont-1">
+                    <input class="esemeny-input hidden" type="checkbox" id="esemeny-option-1" name="esemenyopt" value="">
+                    <img src="assets/img/checkbox-off.png" alt="[ ]" class="esemeny-checkbox" id="esemeny-checkbox-1">
+                    <span class="esemeny-option-cim" id="esemeny-option-cim-1"></span>
+                    <span class="helyes-esemeny" id="helyes-esemeny-1"></span>
+                </div>
+
+                <div onclick="toggleEsemeny(2)" class="esemeny-input-cont" id="esemeny-input-cont-2">
+                    <input class="esemeny-input hidden" type="checkbox" id="esemeny-option-2" name="esemenyopt" value="">
+                    <img src="assets/img/checkbox-off.png" alt="[ ]" class="esemeny-checkbox" id="esemeny-checkbox-2">
+                    <span class="esemeny-option-cim" id="esemeny-option-cim-2"></span>
+                    <span class="helyes-esemeny" id="helyes-esemeny-2"></span>
+                </div>
+
+                <div onclick="toggleEsemeny(3)" class="esemeny-input-cont" id="esemeny-input-cont-3">
+                    <input class="esemeny-input hidden" type="checkbox" id="esemeny-option-3" name="esemenyopt" value="">
+                    <img src="assets/img/checkbox-off.png" alt="[ ]" class="esemeny-checkbox" id="esemeny-checkbox-3">
+                    <span class="esemeny-option-cim" id="esemeny-option-cim-3"></span>
+                    <span class="helyes-esemeny" id="helyes-esemeny-3"></span>
+                </div>
+
+                <div onclick="toggleEsemeny(4)" class="esemeny-input-cont" id="esemeny-input-cont-4">
+                    <input class="esemeny-input hidden" type="checkbox" id="esemeny-option-4" name="esemenyopt" value="">
+                    <img src="assets/img/checkbox-off.png" alt="[ ]" class="esemeny-checkbox" id="esemeny-checkbox-4">
+                    <span class="esemeny-option-cim" id="esemeny-option-cim-4"></span>
+                    <span class="helyes-esemeny" id="helyes-esemeny-4"></span>
+                </div>
+
+                <br><legend>(több válasz jelölhető)</legend><br>
+            </div>
+
+            <div id="evszam-input-div">
+                <input type="text" id="evszam-input">
+                <span class="helyes" id="helyes-evszam"></span>
+            </div>
+            
+        </div>
+
+        <div id="game-nav-buttons">
+            <button class="game-nav-button" type="button" id="show-ans-button" onclick="submit_input(1);">helyes válasz</button>
+            <button class="game-nav-button" type="button" id="next-question-button" onclick="submit_input();">következő</button>
+        </div>
+        
+        
+        <p id="csalas"></p>    
+
+    </div>
+
+</body>
+</html>
