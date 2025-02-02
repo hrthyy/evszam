@@ -19,16 +19,45 @@
     <div id="game-settings" class="content-menu">
         <div id="game-settings-questions">
             <h2>Mennyi kérdés?</h2>
-            <input type="radio" id="q10-button" name="qcount" value="10" checked>
+            <input type="radio" id="q10-button" name="qcount" value="10" checked onclick="toggleCustomq(0);">
             <label for="q10-button">10 kérdés</label><br>
-            <input type="radio" id="q25-button" name="qcount" value="25" >
+            <input type="radio" id="q25-button" name="qcount" value="25" onclick="toggleCustomq(0);">
             <label for="q25-button">25 kérdés</label><br>
-            <input type="radio" id="q50-button" name="qcount" value="50">
+            <input type="radio" id="q50-button" name="qcount" value="50" onclick="toggleCustomq(0);">
             <label for="q50-button">50 kérdés</label><br>
-            <input type="radio" id="q100-button" name="qcount" value="100">
+            <input type="radio" id="q100-button" name="qcount" value="100" onclick="toggleCustomq(0);">
             <label for="q100-button">100 kérdés</label><br>
-            <input type="radio" id="q298-button" name="qcount" value="298">
+            <input type="radio" id="q298-button" name="qcount" value="298" onclick="toggleCustomq(0);">
             <label for="q298-button">MINDEN kérdés</label><br>
+            <input type="radio" id="q999-button" name="qcount" value="999" onclick="toggleCustomq(1);">
+            <label for="q999-button">egyéni</label><br>
+        </div>
+
+        <div id="game-settings-custom-questions" class="hidden">
+            <input class="customq-checkbox" type="checkbox" id="customq-0" name="customq" value="0">
+            <label for="customq-0">Ókor</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-1" name="customq" value="1">
+            <label for="customq-1">A középkori Európa világa</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-2" name="customq" value="2">
+            <label for="customq-2">Magyar középkor</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-3" name="customq" value="3">
+            <label for="customq-3">Egyetemes koraújkor</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-4" name="customq" value="4">
+            <label for="customq-4">Magyar koraújkor</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-5" name="customq" value="5">
+            <label for="customq-5">Egyetemes újkor</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-6" name="customq" value="6">
+            <label for="customq-6">Magyarország, újkor</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-7" name="customq" value="7">
+            <label for="customq-7">A világháborúk kora</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-8" name="customq" value="8">
+            <label for="customq-8">Magyarország, világháborúk kora</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-9" name="customq" value="9">
+            <label for="customq-9">A hidegháború kora, világtörténelem</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-10" name="customq" value="10">
+            <label for="customq-10">A hidegháború kora, Magyarország</label><br>
+            <input class="customq-checkbox" type="checkbox" id="customq-11" name="customq" value="11">
+            <label for="customq-11">Jelenkor</label><br>
         </div>
 
         <div id="game-settings-mode">
@@ -40,6 +69,7 @@
         <div id="game-start">
             <hr>
             <button type="button" id="start-button" onclick="new_game();">Indítás!</button>
+            <h3 id="start-error-msg"></h3>
         </div>
     </div>
 
@@ -106,7 +136,7 @@
 
     </div>
 
-    <p id="version">v1.1</p>
+    <p id="version">v1.2</p>
 
 </body>
 </html>

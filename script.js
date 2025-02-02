@@ -282,6 +282,12 @@ function new_game() {
     // set game questions from radio buttons
     fela_szama = Number(document.querySelector('input[name="qcount"]:checked').value);
 
+    if (fela_szama == 999 && !document.querySelectorAll('input[name="customq"]:checked').length) {
+        print("nincs kivalasztva egyenibe semmi")
+        document.getElementById("start-error-msg").innerHTML = "válassz egyéni kategóriákat!"
+        return
+    }
+
     
     // set ui
     hide(document.getElementById("game-settings"))
@@ -303,6 +309,10 @@ function new_game() {
     if (fela_szama == 298) {
         shuffle(CONST_INDEX_POOL)
         fela_indexek = CONST_INDEX_POOL
+    } else if (fela_szama == 999) {
+        fela_indexek = get_egyeni_range()
+        fela_szama = fela_indexek.length
+        shuffle(fela_indexek)
     } else {
         fela_indexek = randints_range(fela_szama)
     }
@@ -526,6 +536,8 @@ function select_game() {
     show(document.getElementById("game-settings"))
     hide(document.getElementById("game-div"))
     hide(document.getElementById("game-stats-div"))
+
+    document.getElementById("start-error-msg").innerHTML = ""
 
     show(document.getElementById("version"))
 }
@@ -951,5 +963,37 @@ function toggleEsemeny(n) {
     } else {
         esemeny_valaszok[n] = true;
         cbx.src = "assets/img/checkbox-on.png"
+    }
+}
+
+function get_egyeni_range() {
+    let egyeni = []
+    let curr
+
+    document.querySelectorAll('input[name="customq"]:checked').forEach((elem)=>{
+        curr = Number(elem.value)
+        if (curr != 11) {
+            for (k=TIPUSOK_DATA["SEPARATOR"][curr]+1;k<TIPUSOK_DATA["SEPARATOR"][curr+1];k++)
+                {egyeni.push(k)}
+        } else {
+            for (k=300;k<310;k++) {egyeni.push(k)}
+        }
+
+    })
+    //print("egyeni range, elemek szama "+egyeni.length)
+    //print(egyeni)
+    return egyeni
+}
+
+function toggleCustomq(b) {
+    // b:bool, customq -> game-settings-custom-questions
+    // ha b 1, akkor megjeleniti a customq divet, 
+    // ha b 0, akkor eltunteti
+
+    if (b) {
+        show(document.getElementById("game-settings-custom-questions"))
+    } else {
+        hide(document.getElementById("game-settings-custom-questions"))
+        document.getElementById("start-error-msg").innerHTML = ""
     }
 }
