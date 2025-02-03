@@ -476,7 +476,7 @@ const SOROK_DATA =
   ],
   [
     "1727",
-    "Tata az Esterh\u00e1tyak birtoka lett"
+    "Tata az Esterh\u00e1zyak birtoka lett"
   ],
   [
     "1740:1780",
@@ -774,7 +774,7 @@ const SOROK_DATA =
     "a m\u00fcncheni konferencia"
   ],
   [
-    "1939:1945",
+    "1939.9.1:1945.9.2",
     "a II. vil\u00e1gh\u00e1bor\u00fa",
     "tolig"
   ],
@@ -847,7 +847,7 @@ const SOROK_DATA =
     "5. B) Magyarorsz\u00e1g, vil\u00e1gh\u00e1bor\u00fak kora 1914-1915"
   ],
   [
-    "1914.6.28",
+    "1914.7.28",
     "az Osztr\u00e1k-Magyar Monarchia hadat \u00fczen Szerbi\u00e1nak"
   ],
   [
