@@ -152,6 +152,11 @@ body {
     text-align: left;
 }
 
+.selected-cont {
+    border: 3px solid var(--tx_barna1);
+    background-color: var(--btn_3);
+}
+
 .esemeny-checkbox {
     margin: 1px 0 1px 0;
     width: 10%;
@@ -161,6 +166,8 @@ body {
 .esemeny-input-cont span {
     font-size: 24px;
 }
+
+
 
 /* stats menu */
 

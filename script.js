@@ -1,5 +1,9 @@
 
 
+function print(s) {
+    //console.log(s)
+}
+
 function toggle(obj) { // nem teszteltem
     obj.classList.toggle("hidden")
 }
@@ -25,10 +29,6 @@ const MONTH_FORMAT = [
 const FULL_MONTH_FORMAT = [
     "január","február","március","április","május","június","július","augusztus","szeptember","október","november","december"
 ]
-
-function print(s) {
-    //console.log(s)
-}
 
 function toldalek_format(n) {
     // visszaadja milyen toldalek lesz az adott szam utan (-tól vagy -től)
@@ -390,6 +390,9 @@ function next_question() {
         esemeny_valaszok = [false, false, false, false]
         document.querySelectorAll(".esemeny-checkbox").forEach((elem)=>{
             elem.src = "assets/img/checkbox-off.png"
+        })
+        document.querySelectorAll(".selected-cont").forEach((cont)=>{
+            cont.classList.remove("selected-cont")
         })
 
         if (TIPUSOK_DATA["tolig"].includes(fela_indexek[fela_ctr])) {
@@ -955,14 +958,17 @@ function toggleEsemeny(n) {
     }
     //let btn = document.getElementById("esemeny-option-"+String(n))
     let cbx = document.getElementById("esemeny-checkbox-"+String(n))
+    let cont = document.getElementById("esemeny-input-cont-"+String(n))
     n -= 1
 
     if (esemeny_valaszok[n]) {
         esemeny_valaszok[n] = false;
         cbx.src = "assets/img/checkbox-off.png"
+        cont.classList.remove("selected-cont")
     } else {
         esemeny_valaszok[n] = true;
         cbx.src = "assets/img/checkbox-on.png"
+        cont.classList.add("selected-cont")
     }
 }
 
