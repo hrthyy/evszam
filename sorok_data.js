@@ -690,7 +690,7 @@ const SOROK_DATA =
     "a szarajev\u00f3i mer\u00e9nylet"
   ],
   [
-    "1914.6.28",
+    "1914.7.28",
     "az I. vh kezdete"
   ],
   [
@@ -698,7 +698,7 @@ const SOROK_DATA =
     "az I. vh v\u00e9ge"
   ],
   [
-    "1914.6.28:1918.11.11",
+    "1914.7.28:1918.11.11",
     "az I. vil\u00e1gh\u00e1bor\u00fa",
     "tolig"
   ],
