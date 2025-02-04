@@ -77,12 +77,17 @@
         <p id="game-stats-p">Vége.</p>
         <h2 id="game-stats-points"></h2>
         <button type="button" id="new-game-button" onclick="select_game();">új játék</button>
+        <br><hr><br>
+        <div id="stats-osszesito" class="hidden">
+            <h2>Összesítő</h2>
+        </div>
     </div>
 
 
     <div id="game-div" class="content-menu hidden">
         <h2 id="question-number">--sorszam--</h2>
         <h3 id="question-type">--hogyan--</h3>
+        <h3 id="question-pontos">--pontos--</h3>
         <h2 id="question-title">--kerdes--</h2>
 
         <div id="game-input-div">
@@ -120,7 +125,11 @@
             </div>
 
             <div id="evszam-input-div">
-                <input type="text" id="evszam-input">
+                <input type="text" id="evszam-input" class="evszam-textbox" maxlength="30">
+                <div id="evszam-tolig-div" class="hidden">
+                    <input type="text" id="evszam-tolig-tol" class="evszam-textbox" placeholder="ettől..." maxlength="30">
+                    <input type="text" id="evszam-tolig-ig" class="evszam-textbox" placeholder="eddig..." maxlength="30">
+                </div>
                 <span class="helyes" id="helyes-evszam"></span>
             </div>
             
@@ -136,7 +145,7 @@
 
     </div>
 
-    <p id="version">v1.2</p>
+    <p id="version">v1.3</p>
 
 </body>
 </html>

@@ -4,6 +4,13 @@ function print(s) {
     //console.log(s)
 }
 
+function debug_onready() {
+
+}
+
+
+
+
 function toggle(obj) { // nem teszteltem
     obj.classList.toggle("hidden")
 }
@@ -56,7 +63,7 @@ function date_format(dt) {
     // ez lesz hasznalva a helyes valaszok kiirasanal es
     // a kerdesnel hogy mi tortent ekkor: formazni kell
     
-    if (TIPUSOK_DATA["spec"].includes(dt)) {
+    if (is_spec(dt)) {
         switch (dt) {
             case 20:
                 return "Kr. e. 6. - Kr. u. 29/31"
@@ -72,22 +79,22 @@ function date_format(dt) {
     
     let ymd = SOROK_DATA[dt][0]
 
-    if (TIPUSOK_DATA["szazad"].includes(dt)) {
+    if (is_szazad(dt)) {
         ymd = ymd.replace('-',"Kr. e. ")
         return ymd.replace("sz",". század")
     }
-    if (TIPUSOK_DATA["korul"].includes(dt)) {
+    if (is_korul(dt)) {
         ymd = ymd.replace('-',"Kr. e. ")
         return ymd.replace("c"," körül")
     }
 
-    if (TIPUSOK_DATA["tolig"].includes(dt)) {
+    if (is_tolig(dt)) {
         ymd = ymd.split(':')
         ymd[0] = ymd_format(ymd[0])
         ymd[0] = ymd[0].replace('-',"Kr. e. ")
         ymd[1] = ymd_format(ymd[1])
         ymd[1] = ymd[1].replace('-',"Kr. e. ")
-        return ymd[0] + " - " + ymd[1]
+        return ymd[0] + " – " + ymd[1]
     }
 
     return ymd_format(ymd)
@@ -125,7 +132,7 @@ function get_options_from_sep(sepIndex, kivetel) {
     // visszaad 3 hamis valaszlehetoseget az adott blokkbol (de lehet attol meg helyes valamelyik)
     
     // ha szazad, akkor ez az egy kerdes lehetseges
-    if (TIPUSOK_DATA["szazad"].includes(kivetel)) {
+    if (is_szazad(kivetel)) {
         let arr = []
         for (k=0;k<4;k++) {
             if (kivetel != TIPUSOK_DATA["szazad"][k]) {arr.push(TIPUSOK_DATA["szazad"][k])}
@@ -164,6 +171,11 @@ var fela_ctr = -1 // eppen hanyadik feladat
 var fela_pontszam = 0
 var tmp
 
+// evszam mode specific
+var tolig_split // a toligosoknal kell majd kimenteni globalisan a tol-ig valaszokat igy felbontva ebbe,
+// mert a kiszinezeshez kell majd a showAns-ban
+
+// esemeny mode specific
 var options_indexek = [] // esemeny modban az extra valaszok indexei
 var valasz_indexek = [] // esemeny modban ha a valasz tipusa kizarolag normal,
                         // akkor letesztel minden mas kizarolag normal valaszt
@@ -171,8 +183,11 @@ var valasz_indexek = [] // esemeny modban ha a valasz tipusa kizarolag normal,
 
 var esemeny_valaszok = [false, false, false, false] // esemeny modban a user altal kivalasztottak indexei
 
+// helyes valasz gomb
 var alreadyTested = false
 var testResult = false
+
+// egyszer hasznalatos copy
 var VALASZ_GLOBAL_COPY = {
     "evszam": "",
     "esemeny_nevek": [
@@ -183,12 +198,39 @@ var VALASZ_GLOBAL_COPY = {
     ]
 }
 
-/* 
-for (o=0;o<309;o++) {
-    print(SOROK_DATA[o][0])
-    print("index "+o+" -> "+ date_format(o))
+// GLO VARS
+// valaszok logolasa, cookie vars
+
+var GLO_megadott_valaszok = [] // evszam modban a beirt valaszt, esemeny modban a kivalasztott index(ek)et tarolja
+// evszam mode: list[String] ; esemeny mode: list[ list[int] ]
+
+var GLO_helyes_valaszok = [] // csak esemeny modban hasznalt (evszam modban a fela_indexek helyettesiti)
+// esemeny_mode: mivel adott kerdesre menet kozben kitalalt tobb valasz jo, kiirja oket ide
+
+var GLO_valasz_joe = [] // list[bool]; mindket modban true-false ertekeket ad bele az alapjan,
+// hogy a jelen kerdest sikerult-e helyesen megvalaszolni
+
+
+// TYPE ROVIDITO FUNC
+
+function is_tolig(dt) {
+    return TIPUSOK_DATA["tolig"].includes(dt)
 }
-*/
+function is_szazad(dt) {
+    return TIPUSOK_DATA["szazad"].includes(dt)
+}
+function is_korul(dt) {
+    return TIPUSOK_DATA["korul"].includes(dt)
+}
+function is_spec(dt) {
+    return TIPUSOK_DATA["spec"].includes(dt)
+}
+function is_kre(dt) {
+    return TIPUSOK_DATA["kre"].includes(dt)
+}
+function is_type(dt,t) {
+    return TIPUSOK_DATA[t].includes(dt)
+}
 
 
 function set_game_mode(txt) {
@@ -234,6 +276,13 @@ function sanitized(txt) {
     txt = txt.replace(/ó/g, "o");
     txt = txt.replace(/ö/g, "o");
     txt = txt.replace(/ü/g, "u");
+
+    // htmlspecialchars
+    txt = txt.replace(/</g, "");
+    txt = txt.replace(/>/g, "");
+    txt = txt.replace(/'/g, "");
+    txt = txt.replace(/"/g, "");
+    txt = txt.replace(/&/g, "");
     
     return txt
 }
@@ -273,6 +322,23 @@ function day_format(d) { // d:String
     if (d[0]=='0') {print("day_format meghivva: "+d[1]);return d[1]}
     print("day_format meghivva: "+d)
     return d
+}
+
+function get_pontos(dt) {
+    if (is_szazad(dt)) {
+        return "(század)"
+    } else if (is_korul(dt)) {
+        return "(év + körül)"
+    }
+
+    dt = SOROK_DATA[dt][0].split(':')[0].split('.').length
+    if (dt == 3) {
+        return "(év.hónap.nap)"
+    } else if (dt == 2) {
+        return "(év.hónap)"
+    } else {
+        return "(év)"
+    }
 }
 
 
@@ -319,8 +385,9 @@ function new_game() {
     
     // teszthez:
     //fela_indexek = [19,19,19,19,19,200]
-    //fela_indexek = [20,118,143,20,118,143]
-    //fela_indexek = [5,13,41,44,5,13,41,44,5,13]
+    //fela_indexek = [20,118,143,20,118,143] // spec
+    //fela_indexek = [5,13,41,44,5,13,41,44,5,13] // szazad
+    //fela_indexek = [1,2,3,1,2,3] // korul
 
 
     if (game_mode == "evszam") {
@@ -340,6 +407,8 @@ function new_game() {
     }
 
     print(fela_indexek);
+    hide(document.getElementById("stats-osszesito"))
+
     next_question()
 }
 function next_question() {
@@ -362,22 +431,38 @@ function next_question() {
         // clear 'helyes'
         document.getElementById("helyes-evszam").innerHTML = ""
 
-        // unlock input text box
-        document.getElementById("evszam-input").disabled = false
-
-        document.getElementById("evszam-input").classList.remove("helyes")
-        document.getElementById("evszam-input").classList.remove("helytelen")
-
-        document.getElementById("evszam-input").value = ""; // reset answer
         
-        if (TIPUSOK_DATA["tolig"].includes(fela_indexek[fela_ctr])) {
+        if (is_tolig(fela_indexek[fela_ctr])) {
             document.getElementById("question-type").innerHTML = "Mettől meddig tartott?<br>"
+            hide(document.getElementById("evszam-input"))
+            show(document.getElementById("evszam-tolig-div"))
+            // unlock input text boxes
+            document.getElementById("evszam-tolig-tol").disabled = false
+            document.getElementById("evszam-tolig-ig").disabled = false
+            // reset answer
+            document.getElementById("evszam-tolig-tol").value = ""
+            document.getElementById("evszam-tolig-ig").value = ""
+            // reset color
+            document.getElementById("evszam-tolig-tol").classList.remove("helyes")
+            document.getElementById("evszam-tolig-tol").classList.remove("helytelen")
+            document.getElementById("evszam-tolig-ig").classList.remove("helyes")
+            document.getElementById("evszam-tolig-ig").classList.remove("helytelen")
         } else {
             document.getElementById("question-type").innerHTML = "Mikor történt?<br>"
+            show(document.getElementById("evszam-input"))
+            hide(document.getElementById("evszam-tolig-div"))
+            // unlock input text box
+            document.getElementById("evszam-input").disabled = false
+            // reset answer
+            document.getElementById("evszam-input").value = ""
+            // reset color
+            document.getElementById("evszam-input").classList.remove("helyes")
+            document.getElementById("evszam-input").classList.remove("helytelen")
         }
         
         
         document.getElementById("question-title").innerHTML = SOROK_DATA[fela_indexek[fela_ctr]][1]
+        document.getElementById("question-pontos").innerHTML = get_pontos(fela_indexek[fela_ctr])
     
     
     } else if (game_mode == "esemeny") {
@@ -395,7 +480,7 @@ function next_question() {
             cont.classList.remove("selected-cont")
         })
 
-        if (TIPUSOK_DATA["tolig"].includes(fela_indexek[fela_ctr])) {
+        if (is_tolig(fela_indexek[fela_ctr])) {
             document.getElementById("question-type").innerHTML = "Milyen esemény tartott ettől eddig?<br>"
         } else {
             document.getElementById("question-type").innerHTML = "Mi történt ekkor?<br>"
@@ -467,16 +552,16 @@ function get_valasz_indexek(opt, kivetel) {
             flagNormal = true
             curr = SOROK_DATA[elem][0]
             
-            if (TIPUSOK_DATA["tolig"].includes(elem)) {
+            if (is_tolig(elem)) {
                 print(elem + ". index egy TOLIG")
                 flagNormal = false
-            } else if (TIPUSOK_DATA["korul"].includes(elem)) {
+            } else if (is_korul(elem)) {
                 print(elem + ". index egy KORUL")
                 flagNormal = false
-            } else if (TIPUSOK_DATA["szazad"].includes(elem)) {
+            } else if (is_szazad(elem)) {
                 print(elem + ". index egy SZAZAD")
                 flagNormal = false
-            } else if (TIPUSOK_DATA["spec"].includes(elem)) {
+            } else if (is_spec(elem)) {
                 print(elem + ". index egy SPEC")
                 flagNormal = false
             }
@@ -532,10 +617,15 @@ function end_game() {
     show(document.getElementById("game-stats-div"))
     document.getElementById("game-stats-points").innerHTML = "Pontszám: " + String(fela_pontszam) + " / " + String(fela_szama)
     hide(document.getElementById("game-div"))
+
+    display_osszesito()
 }
 
 // game settings menu
 function select_game() {
+    // on ready (called by body tag)
+    debug_onready()
+
     show(document.getElementById("game-settings"))
     hide(document.getElementById("game-div"))
     hide(document.getElementById("game-stats-div"))
@@ -565,6 +655,7 @@ function submit_input(showAns = false) {
 
 function show_ans() {
     document.getElementById("show-ans-button").disabled = true
+    document.getElementById("question-pontos").innerHTML = ""
 
     if (testResult) {
         document.getElementById("question-type").innerHTML = "A válasz helyes."
@@ -576,15 +667,41 @@ function show_ans() {
 
     if (game_mode == "evszam") 
     {
-        // lock input
-        document.getElementById("evszam-input").disabled = true
+        // lock and color the textboxes
+        if (!is_tolig(fela_indexek[fela_ctr])) {
+            document.getElementById("evszam-input").disabled = true
+            
+            if (testResult) {
+                document.getElementById("evszam-input").classList.add("helyes")
+            } else {
+                document.getElementById("evszam-input").classList.add("helytelen")
+            }
 
-
-        if (testResult) {
-            document.getElementById("evszam-input").classList.add("helyes")
         } else {
-            document.getElementById("evszam-input").classList.add("helytelen")
+            document.getElementById("evszam-tolig-tol").disabled = true
+            document.getElementById("evszam-tolig-ig").disabled = true
+
+            
+            if (tolig_split != undefined) {
+                
+                if (tolig_split[0]) {
+                    document.getElementById("evszam-tolig-tol").classList.add("helyes")
+                } else {
+                    document.getElementById("evszam-tolig-tol").classList.add("helytelen")
+                }
+
+                if (tolig_split[1]) {
+                    document.getElementById("evszam-tolig-ig").classList.add("helyes")
+                } else {
+                    document.getElementById("evszam-tolig-ig").classList.add("helytelen")
+                }
+            }
+            
+
         }
+
+
+
 
         document.getElementById("helyes-evszam").innerHTML = "Helyes válasz: " + date_format(VALASZ_GLOBAL_COPY.evszam)
     }
@@ -734,6 +851,32 @@ function test_input() {
             }
 
 
+            if (flagTolig) {
+                // az uj systembe nem kell kettospontot irni
+                // de ha az elsobe van, akkor az elsot tekinti csak jonak
+                // es a regi rendszer szerint ellenorzi
+                if (document.getElementById("evszam-tolig-tol").value.includes(':')) {
+                    txt = sanitized(document.getElementById("evszam-tolig-tol").value)
+                } else {
+                    txt = sanitized(document.getElementById("evszam-tolig-tol").value) + ':' + document.getElementById("evszam-tolig-ig").value
+                    txt = txt.replace(' ','')
+                    if (txt == ':') {
+                        txt = null
+                    }
+                
+                }
+            }
+
+            if (!txt) {
+                print("nincs evszam input")
+                GLO_megadott_valaszok.push(null)
+                return false
+            } else {
+                print("van evszam input")
+                GLO_megadott_valaszok.push(txt.slice(0,31))
+            }
+            
+
             if (flagSpec) { // manualis teszt a 3 special case-re
                 let spec_index = fela_indexek[fela_ctr]
 
@@ -771,28 +914,35 @@ function test_input() {
         
             if (flagKre) {
                 // alterelni a kr.e. szoveg osszes variaciojat egy - jelre
-                // regex kellene
-                txt = txt.replace(/r\x2e/g,'r')
-                txt = txt.replace(/e\x2e/g,'e')
-                let pattern = /k.{0,}r.{0,}e/g
+                txt = txt.replace(/e\x2e/g,'e') //txt = txt.replace(/r\x2e/g,'r') // felesleges
+
+                let pattern = /\s.{0,}k.{,0}r.{0,}e.\s{0,}/g
                 if (txt.search(pattern) != -1) {
                     txt = txt.replace(pattern, "-")
                 } else if (txt.includes('-')) {
-                    pattern = /\s{0,}-\s{0,}/g
-                    txt = txt.replace(pattern, '-')
-                }
-                else {return false } // ha nincs benne kre vagy minuszjel nem lehet jo
-                txt = txt.replace(' ','')
+                    txt = txt.replace(/\s{0,}-\s{0,}/g, '-')
+                } else {
+                    return false
+                } // ha nincs benne kre vagy minuszjel nem lehet jo
+                
+                txt = txt.replace(/\s.{0,}/g,'')
                 print("kre szuro megvolt: "+txt)
+            } else {
+                // ha van benne kr.e. notation de nem kellett volna az nemjo
+                if (txt.includes('-') || -1 != txt.search(/.{0,}k.{0,}r.{0,}e.{0,}/)) {
+                    print("normál, de van benne kr.e. -> helytelen")
+                    return false
+                }
             }
 
     
 
             if (flagSzazad) { // egyszeru, mert nincs korul-tolig kombo
+                let valasz_ev = valasz.split('s')[0] // pl. -5sz -> -5
+
                 txt = txt.replace(/\s{0,}/g,'')
                 txt = txt.replace(/\x2e{0,}/g,'') // x2e -> asciiban a 2E a pont (.)
-                let valasz_ev = valasz.split('s')[0] // pl. -5sz -> -5
-                txt = txt.replace(/\s{0,}sz.{0,}/g, "sz")
+                txt = txt.replace(/sz.{0,}/g, "sz")
 
                 if (!txt.includes("sz")) {
                     return false // ha nincs benne legalabb a "sz" akkor nemjo
@@ -809,8 +959,11 @@ function test_input() {
             
             if (flagKorul) { // egyszeru, mert nincs szazad-tolig kombo
                 let valasz_ev = valasz.split('c')[0] // leszedi a c-t a vegerol
-                txt = txt.replace(/\s{1,}c\s{1,}/g, "c")
-                txt = txt.replace(/\s{1,}k.{0,}/g, "c") // ha valaki azt irja hogy 'c' vagy azt hogy 'korul', akkor is jo az ellenorzes
+
+                // ha valaki azt irja hogy 'c' vagy azt hogy 'korul', akkor is jo az ellenorzes
+                txt = txt.replace(/\s{0,}c\s{0,}/g, "c")
+                txt = txt.replace(/\s{0,}ko.{0,}/g, "c") 
+
                 if (txt.includes("c") && txt.includes(valasz_ev)) {
                     print("korul bele van irva szuper")
                 } else {
@@ -820,14 +973,12 @@ function test_input() {
             
 
             // ymd meghatarozashoz fontos, mert ha tolig, akkor 2x2 ymd kell
-            if (flagTolig && !flagSzazad && !flagKorul) {
-                txt = txt.replace(/\s{0,}:\s{0,}/g,':')
-                if (!flagKre && txt.includes('-')) { // ha nincs kr.e. evszam, lehet hasznalni kotolejet is
-                    txt = txt.replace(/\s{0,}-\s{0,}/g,':')
-                }
-                txt = txt.replace(/\s/g,'')
+            if (flagTolig) {
+                // az uj systembe nem kell kettospontot irni
+                // de ha az elsobe van, akkor az elsot tekinti csak jonak
+                // es a regi rendszer szerint ellenorzi
 
-                let tolig_split
+                // let tolig_split // helyette var
                 let valasz_tolig_ymd = {"tol":{},"ig":{}};
                 let txt_tolig_ymd = {"tol":{},"ig":{}};
                 // tolig valasz kinyerese
@@ -844,6 +995,8 @@ function test_input() {
                     // toligsplit arra lesz hasznalva, hogy mind2 valasz jo-e
                     tolig_split[0] = compare_ymd(valasz_tolig_ymd.tol, txt_tolig_ymd.tol)
                     tolig_split[1] = compare_ymd(valasz_tolig_ymd.ig, txt_tolig_ymd.ig)
+
+                    // tolig teszt end
                     if (tolig_split[0] && tolig_split[1]) 
                         {return true}
                     else 
@@ -866,12 +1019,6 @@ function test_input() {
         } 
         else // if (flagNormal)
         { 
-            print("normál")
-            if (txt.includes('-') || -1 != txt.search(/.{0,}k.{0,}r.{0,}e.{0,}/)) {
-                // ha van benne kr.e. notation
-                print("normál, de van benne kr.e. -> helytelen")
-                return false
-            }
             valasz_ymd = get_ymd(valasz)
             txt_ymd = get_ymd(txt)
 
@@ -892,8 +1039,14 @@ function test_input() {
             if (elem) {txt.push( options_indexek[index] )}
         } )
 
-        if (!txt.length) {print("nincs input");return false;} // ha egy sincs bepipalva
-        print("van input")
+        if (!txt.length) { // ha egy sincs bepipalva
+            print("nincs esemeny input");
+            return false;
+        }
+        print("van esemeny input")
+
+        GLO_megadott_valaszok.push(txt)
+        GLO_helyes_valaszok.push(valasz_indexek)
 
         print("HELYES: "+valasz_indexek)
         print("JELOLT: "+txt)
@@ -939,6 +1092,8 @@ function test_input() {
 function end_testing(ans_correct) {
     print('---- end testing ----')
     print(String(1+fela_ctr) +". kerdesre VALASZ: "+ans_correct)
+
+    GLO_valasz_joe.push(ans_correct)
     if (ans_correct) {
         fela_pontszam += 1
         print("helyes")
@@ -1002,4 +1157,54 @@ function toggleCustomq(b) {
         hide(document.getElementById("game-settings-custom-questions"))
         document.getElementById("start-error-msg").innerHTML = ""
     }
+}
+
+function display_osszesito() {
+    let ossz = ''
+
+    if (game_mode == 'evszam') 
+    {
+        GLO_helyes_valaszok = fela_indexek
+        // osszesito - evszam mode
+        for (n=0;n<fela_szama;n++) {
+            ossz = '<h3>'+Number(n+1) + '. kérdés:<br>'
+            ossz += SOROK_DATA[GLO_helyes_valaszok[n]][1] +'</h3>'
+            if (GLO_valasz_joe[n]) {
+                ossz += '<p class="helyes">Helyes</p>'
+            } else {
+                ossz += '<p class="helytelen">Helytelen</p>'
+                ossz += '<p>Helyes válasz: ' + date_format(GLO_helyes_valaszok[n])
+                ossz += '<br>A kérdéskor adott válasz:</p>'
+                if (GLO_megadott_valaszok[n]) {
+                    ossz += '<p class="helytelen">'
+                    ossz += GLO_megadott_valaszok[n].replace(':',' – ') + '</p>'
+                    print(GLO_megadott_valaszok[n])
+                } else {
+                    ossz += '<p class="ures">semmi</p>'
+                }
+                
+            }
+            
+            if (n != fela_szama -1) {
+                ossz += '<hr>'
+            }
+            document.getElementById("stats-osszesito").innerHTML += ossz
+        }
+
+
+    } 
+    else if (game_mode == "esemeny") 
+    {
+        // osszesito - esemeny mode
+        return
+        // le akarok fekudni aludni inkabb
+    }
+
+    /* 
+    print("glo_helyes: "+GLO_helyes_valaszok)
+    print("glo_megadott: "+GLO_megadott_valaszok)
+    print("glo_siker: "+GLO_valasz_joe)
+    */
+
+    show(document.getElementById("stats-osszesito")) // ha hiba lenne akkor inkabb ne irja ki
 }

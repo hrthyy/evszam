@@ -22,6 +22,10 @@
 .helytelen {
     color: red;
 }
+.ures {
+    color: gray;
+    font-style: italic;
+}
 
 html {
     scroll-behavior: smooth;
@@ -132,15 +136,28 @@ body {
     padding: 12px;
 }
 
-#evszam-input {
-    margin: 5% 0% 10% 0%;
-    font-size: 24px;
-}
 
 #helyes-evszam {
     font-size: 24px;
 }
 
+#question-pontos, #question-type {
+    display: inline-block;
+}
+#question-pontos {
+    opacity: 0.8;
+}
+
+.evszam-textbox {
+    font-size: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 5% 0% 10% 0%;
+    width: 96%;
+}
+.evszam-textbox:focus {
+    border: 4px solid var(--tx_barna2);
+}
 
 /* esemeny mode */
 
@@ -169,5 +186,9 @@ body {
 
 
 
-/* stats menu */
+/* stats menu , osszesito*/
 
+#stats-osszesito p, #stats-osszesito hr, #stats-osszesito h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
