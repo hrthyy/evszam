@@ -331,7 +331,9 @@ function get_pontos(dt) {
         return "(év + körül)"
     }
 
-    dt = SOROK_DATA[dt][0].split(':')[0].split('.').length
+    dt = SOROK_DATA[dt][0].split(':')
+    dt = dt[0].split('.')
+    dt = dt.length
     if (dt == 3) {
         return "(év.hónap.nap)"
     } else if (dt == 2) {
