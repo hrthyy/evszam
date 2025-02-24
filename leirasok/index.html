@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100% Évszám</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+    <script defer src="leirasok_data.js"></script>
+    <script defer src="../sorok_data.js"></script>
+    <script defer src="leiras-betolto.js"></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body onload="load_table();">
+    <h1 id="title-h1">100% ÉVSZÁM</h1>
+    <h2 id="title-h2">Töri évszám gyakorló</h2>
+    <br>
+
+    <div id="leiras-outer-div" class="content-menu">
+        <div id="leiras-h1-div">
+            <h1 id="leiras-h1">Rövid leírások a történelmi eseményekről</h1>
+        </div>
+
+        <div id="leiras-search-div">
+            <input type="text" onfocusout="filter_search();" id="leiras-search" class="evszam-textbox" placeholder="Keresés...">
+        </div>
+
+        <div id="leiras-buttons-div">
+            <a href="../index.html"><button class="game-nav-button" type="button">Főmenü</button></a>
+        </div>
+
+        <div id="leiras-table">
+            <hr class="leiras-card-hr">
+
+        </div>
+
+
+    </div>
+
+</body>
+</html>

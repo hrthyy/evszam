@@ -89,7 +89,7 @@ body {
     text-align: center;
 }
 
-#start-button {
+#start-button, #leiras-button {
     width: 50%;
     font-size: 26px;
 }
