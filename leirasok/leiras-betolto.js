@@ -108,7 +108,6 @@ function leading_zero(date) {
 function filter_search() {
     let txt = document.getElementById('leiras-search').value.toLowerCase().trim();
 
-    console.log('search query: ' + txt);
 
     if (!txt) { // ha nincs beirva semmi az egyenlo egy resettel
         clear_search();
