@@ -1219,7 +1219,7 @@ const SOROK_DATA =
     "az 56-os forradalom kirobban\u00e1s\u00e1nak d\u00e1tuma"
   ],
   [
-    "1956.10.23",
+    "1956.10.25",
     "a Kossuth t\u00e9ri sort\u0171z"
   ],
   [
