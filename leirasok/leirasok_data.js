@@ -45,7 +45,7 @@ const LEIRASOK_DATA = [
     // az ókor vége
     // 476
     // leiras:
-    "",
+    "A Nyugatrómai Birodalom megszűnése.",
     // ------------------------------
 
     // a zsidó állam fénykora - Dávid, Salamon uralkodása
@@ -57,19 +57,19 @@ const LEIRASOK_DATA = [
     // Salamon temploma Jeruzsálemben
     // -960
     // leiras:
-    "",
+    "Dávid király kezdte el építeni.",
     // ------------------------------
 
     // az első feljegyzett olimpiai játékok
     // -776
     // leiras:
-    "",
+    "Zeusz főisten tiszteletére rendezték Olümpiában négyévente, kizárólag férfi versenyzőknek. (Futás, birkózás, ökölvívás, pankráció (előbbi kettő kombinációja), gerelyhajítás, diszkoszvetés.) A győztest a szent olajfa ágából font koszorúval díjazták. Theodosius császár államvallássá tette a keresztényésget, ekkor szűnt meg.",
     // ------------------------------
 
     // Róma hagyomány szerinti alapítása
     // -753
     // leiras:
-    "",
+    "Első, mitikus királya Romulus, Itália és a Földközi-tenger meghódításával létrejött a Római Birodalom.",
     // ------------------------------
 
     // A zsidók babiloni fogsága
