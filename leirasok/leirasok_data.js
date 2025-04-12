@@ -87,31 +87,31 @@ const LEIRASOK_DATA = [
     // a köztársaság létrejötte Rómában
     // -510
     // leiras:
-    "",
+    "A királyságot megszüntették, a királyt elűzték, megalakult a köztársaság, amelyet két 1-1 évre válaztott tisztségviselő, consul irányított. Egymást ellenőrizték az egyeduralom kialakulását megakadályozva.",
     // ------------------------------
 
     // Kleiszthenész reformjai
     // -508
     // leiras:
-    "",
+    "Kleiszthenész reformjai miatt jött létre az athéni demokrácia, kiterjesztette a polgárjogot: ezután minden szabad felnőtt férfi egyenlőnek számított, területi alapúvá tette a phülék felosztását, hozzá kötjük a cserépszavazást.",
     // ------------------------------
 
     // Athén fénykora
     // -5sz
     // leiras:
-    "",
+    "Nagyrészt Periklész sztatégoszi megbízása idején.",
     // ------------------------------
 
     // Periklész kora
     // -461:-429
     // leiras:
-    "",
+    "Változásokat hozott az athéni demokráciába. A sztratégoszok kivételével a tisztségviselők választása ezentúl sorsolással történt. A népgyűlésen résztvevők, színházba járók, esküdtbírák napidíjat kaptak. Létrejött a demokráciából élők rétege.",
     // ------------------------------
 
     // a marathóni csata
     // -490
     // leiras:
-    "",
+    "Az athéni demokrácia itt bizonyította, hogy egyenrangú az arisztokratikus Spártával",
     // ------------------------------
 
     // Caesar halála
@@ -147,7 +147,7 @@ const LEIRASOK_DATA = [
     // Jeruzsálem lerombolása
     // 70
     // leiras:
-    "",
+    "A templomot egy lázadás után rombolják le a rómaiak, ezzel a zsidó vallási élet központja is elpusztul, a zsinagógák válnak a kizárólagos helyszíneivé.",
     // ------------------------------
 
     // Domitianus-féle keresztényüldözés
@@ -159,19 +159,19 @@ const LEIRASOK_DATA = [
     // a milánói ediktum
     // 313
     // leiras:
-    "",
+    "Constantinus császár rendeletben engedélyezte a szabad vallásgyakorlást.",
     // ------------------------------
 
     // a niceai zsinat
     // 325
     // leiras:
-    "",
+    "Constantinus császár hívta össze, hogy az őt támogató kereszténység egységes legyen. Véglegesítették benne a hittételeket. A megfogalmazott dogmákat elítélőket (eretnekek) ültözték.",
     // ------------------------------
 
     // a Római Birodalom felosztása
     // 395
     // leiras:
-    "",
+    "A római birodalom kettészakad: Bizánci Birodalom és Nyugatrómai Birodalom lesz belőle.",
     // ------------------------------
 
     // a Nyugatrómai Birodalom bukása, az ókor vége
@@ -189,37 +189,37 @@ const LEIRASOK_DATA = [
     // a középkor kezdete
     // 476
     // leiras:
-    "",
+    "Nyugatrómai Birodalom megszűnése.",
     // ------------------------------
 
     // a középkor vége
     // 1492
     // leiras:
-    "",
+    "Amerika felfedezése.",
     // ------------------------------
 
     // a középkor
     // 476:1492
     // leiras:
-    "",
+    "Nyugatrómai Birodalom bukásától Amerika felfedezéséig tartó időszak.",
     // ------------------------------
 
     // Bencés rend alapítása - Szent Benedek, Monte Cassino
     // 529
     // leiras:
-    "",
+    "Az első szerzetesrend, Szent Benedek alapította és írta a szabályrendszerét.",
     // ------------------------------
 
     // Mohamed futása, a muszlim időszámítás kezdete
     // 622
     // leiras:
-    "",
+    "Mohamed a mekkai kereskedől nyomására Medinába költözött.",
     // ------------------------------
 
     // a frankok győzelme az arabok felett - Poitiers
     // 732
     // leiras:
-    "",
+    "Az Arab Birodalom terjeszkedésének megszakadása után a birodalom és felbomlott.",
     // ------------------------------
 
     // Nagy Károly császárrá koronázása
@@ -231,31 +231,31 @@ const LEIRASOK_DATA = [
     // a verduni szerződés
     // 843
     // leiras:
-    "",
+    "Felosztotta a Frank Birodalmat Nagy Károly unokái között.",
     // ------------------------------
 
     // az egyházszakadás
     // 1054
     // leiras:
-    "",
+    "Az egyházi vezetők növekvő világi hatalma miatt a konfliktus megerősödött. A katolikus és az ortodox egyház szétvált.",
     // ------------------------------
 
     // Bolognai egyetem alapítása
     // 1088
     // leiras:
-    "",
+    "A középkor eéső egyeteme.",
     // ------------------------------
 
     // A ferences rend alapítása - Szent Ferenc, Assisi
     // 1209
     // leiras:
-    "",
+    "Assisi Szent Ferenc alapította. Adományokból tartották fenn magukat, oktatási tevékenységet is végeztek.",
     // ------------------------------
 
     // a Magna Charta kiadása
     // 1215
     // leiras:
-    "",
+    "Nagy Szabadságlevél. Az angol bárók 1215-ben ebben az okiratban kényszerítették Földnélküli János angol királyt a törvénytelen adók beszüntetésére és a közös döntéshozatalra.",
     // ------------------------------
 
     // a nagy pestisjárvány
@@ -273,7 +273,7 @@ const LEIRASOK_DATA = [
     // Konstantinápoly török elfoglalása
     // 1453
     // leiras:
-    "",
+    "1453. május 29-én foglalta el II. Mehmed oszmán szultán Konstantinápolyt, ezzel megszűnt az ezeréves Bizánci Birodalom, a keleti kereszténység legfőbb központja.",
     // ------------------------------
 
     // 2. B) Magyar középkor
@@ -297,13 +297,13 @@ const LEIRASOK_DATA = [
     // a pozsonyi csata
     // 907
     // leiras:
-    "",
+    "A honfoglalást lezáró csata a keleti frankok ellen, a magyar törzsszövetség megvédte új szállásterületét.",
     // ------------------------------
 
     // az augsburgi csata
     // 955
     // leiras:
-    "",
+    "A magyar kalandozások egyik legjelentősebb csatája a magyar és német seregek között, magyar vereséggel végződött.",
     // ------------------------------
 
     // Géza fejedelemsége
@@ -321,7 +321,7 @@ const LEIRASOK_DATA = [
     // I. (Szent) István, mint magyar KIRÁLY
     // 1000:1038
     // leiras:
-    "",
+    "1000-ben megkoronázták.",
     // ------------------------------
 
     // I. (Szent) László uralkodása
@@ -339,7 +339,7 @@ const LEIRASOK_DATA = [
     // Az Aranybulla kiadása
     // 1222
     // leiras:
-    "",
+    "II. András magyar király 1222-ben, Székesfehérvárott kiadott, aranypecséttel ellátott királyi dekrétuma.",
     // ------------------------------
 
     // IV. Béla uralkodása
@@ -351,13 +351,13 @@ const LEIRASOK_DATA = [
     // a tatárjárás
     // 1241:1242
     // leiras:
-    "",
+    "A mongolok és szövetségeseik elsősorban a 13. században bekövetkezett támadásai.",
     // ------------------------------
 
     // az Árpád-ház kihalása
     // 1301
     // leiras:
-    "",
+    "III. Andrással az Árpád-ház férfi ága kihalt.",
     // ------------------------------
 
     // I. Károly (Róbert) uralkodása
@@ -369,13 +369,13 @@ const LEIRASOK_DATA = [
     // a visegrádi királytalálkozó
     // 1335
     // leiras:
-    "",
+    "A Károly Róbert által szervezett visegrádi királytalálkozó a magyar, a cseh és a lengyel uralkodó együttműködésének erősítését szolgálta.",
     // ------------------------------
 
     // I. (Nagy) Lajos törvényei
     // 1351
     // leiras:
-    "",
+    "A nemesi birtokok öröklődésének szabályozása Magyarországon: eltörölte a szabad végrendelkezést, az öröklött birtok automatikusan az egyenes vagy oldalági férfi utódra száll. Ha a család fiúágon kihalt, akkor a birtok visszaszállt a királyra. 1848-ig érvényben maradt.",
     // ------------------------------
 
     // Luxemburgi Zsigmond uralkodása
@@ -387,25 +387,25 @@ const LEIRASOK_DATA = [
     // a nikápolyi csata
     // 1396
     // leiras:
-    "",
+    "Luxemburgi Zsigmond lovagserege vereséget szenvedett a jobban felszerelt oszmán haderőkkel szemben.",
     // ------------------------------
 
     // Hunyadi János hosszú hadjárat
     // 1443:1444
     // leiras:
-    "",
+    "A hosszú hadjárat egy Hunyadi János és I. Ulászló által vezetett török elleni hadjárat.",
     // ------------------------------
 
     // a várnai csata
     // 1444
     // leiras:
-    "",
+    "A hosszú hadjáratot lezáró ütközet, magyar vereséggel zárult, I. Ulászló elesett.",
     // ------------------------------
 
     // a nándorfehérvári diadal
     // 1456
     // leiras:
-    "",
+    "Hunyadi János megbízásából Szilágyi Mihály védte II. Mehmed szultán seregei ellen.",
     // ------------------------------
 
     // I. (Hunyadi) Mátyás uralkodása
