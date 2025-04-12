@@ -75,13 +75,13 @@ const LEIRASOK_DATA = [
     // A zsidók babiloni fogsága
     // -597:-538
     // leiras:
-    "",
+    "A babiloni fogság vagy babiloni száműzetés a zsidó történelemnek az a szakasza, volt amikor a Júdai Királyságból a zsidókat Babilonba hurcolták.",
     // ------------------------------
 
     // A jeruzsálemi templom újraépítése
     // -515
     // leiras:
-    "",
+    "Salamon templomát, vagyis az első templomot i. e. 586-ban pusztították el, amikor a zsidókat a babiloni fogságba hurcolták.",
     // ------------------------------
 
     // a köztársaság létrejötte Rómában
