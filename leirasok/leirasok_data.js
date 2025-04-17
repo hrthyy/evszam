@@ -537,31 +537,31 @@ const LEIRASOK_DATA = [
     // mohácsi csatavesztés, kettős királyválasztás
     // 1526
     // leiras:
-    "",
+    "Szulejmán serege itt üzközött meg a számbeli hátrányban lévő II. Lajos vezette haderővel. A csata a király halálával, és kettős királyválasztással (az ország két részre szakadásával) végződött.",
     // ------------------------------
 
     // Buda török elfoglalása, az ország tényleges három részre szakadása
     // 1541
     // leiras:
-    "",
+    "Szapolyai János halála után hívei csecsemő fiát választották királlyá, a két király korábbi egyezsége ellenére, miszerint I. János halála után I. Ferdinánd alatt egyesül az ország.\nFerdinánd serege ezért ostrom alá vette Budát. II. János gyámja, Fráter György a szultán segítségét kérte, aki visszaverte a Habsburg csapatokat és elfoglalta a várat.",
     // ------------------------------
 
     // a nagy várháborúk éve, Eger védelme
     // 1552
     // leiras:
-    "",
+    "Török hadjárat indult a három részre szakadt ország véglegesítésére. Eger megszállásával a királyi Magyarország és Erdély egymástól elszakítása volt a cél.",
     // ------------------------------
 
     // Szigetvár eleste
     // 1566
     // leiras:
-    "",
+    "Az idősebb Zrínyi Miklós által védett Szigetvári vár eleste, mely alatt I. Szulejmán elhunyt.",
     // ------------------------------
 
     // Drinápolyi béke
     // 1568
     // leiras:
-    "",
+    "A várháborúkat lezáró béke: ebben véglegesítették a határokat és a Habsburgok évi ajándék fizetésébe is beleegyeztek.",
     // ------------------------------
 
     // Tordai határozat - vallásbéke
@@ -573,19 +573,19 @@ const LEIRASOK_DATA = [
     // Speyeri szerződés, Erdélyi Fejedelemség
     // 1570
     // leiras:
-    "",
+    "Megállapodás János Zsigmond és II. Miksa császár között. Ezt tekintjük az Erdélyi Fejedelemség létrejöttének.",
     // ------------------------------
 
     // Vizsolyi Biblia - Károli Gáspár
     // 1590
     // leiras:
-    "",
+    "Az első magyar bibliafordítás (református), a nyomtatás helyszínéről nevezték el.",
     // ------------------------------
 
     // a tizenöt éves háború
     // 1591:1606
     // leiras:
-    "",
+    "A Habsuburg Birodalom és az Oszmán Birodalom összecsapása a Magyar Királyság területén.",
     // ------------------------------
 
     // Tata visszafoglalása, patara
@@ -597,7 +597,7 @@ const LEIRASOK_DATA = [
     // Bocskai István szabadságharca
     // 1604:1606
     // leiras:
-    "",
+    "Bocskai István vezette Habsburg ellenes felkelés.",
     // ------------------------------
 
     // Bethlen Gábor erdélyi fejedelem
@@ -609,19 +609,19 @@ const LEIRASOK_DATA = [
     // Pázmány Péter esztergomi érsek
     // 1616:1637
     // leiras:
-    "",
+    "A magyar ellenreformáció kiemelt alakja: rekatolizált, esztergomi érsek lett, utasítására létrejött az első magyar katolikus bibliafordítás (Káldi György), egyetemet alapított.",
     // ------------------------------
 
     // Zrínyi Miklós téli hadjárata, a vasvári béke
     // 1664
     // leiras:
-    "",
+    "Zrínyi Miklós vezette hadjárat, nagy sikereket ért el, ennek ellenére a bécsi udvar megkötötte vasvári békén visszaállították az 1663-1664-es háború előtti állapotokat.",
     // ------------------------------
 
     // Bécs török ostroma
     // 1683
     // leiras:
-    "",
+    "A török sereg második (sikertelen) kísérlete a császárváros bevételére.",
     // ------------------------------
 
     // Buda visszafoglalása
@@ -633,31 +633,31 @@ const LEIRASOK_DATA = [
     // a karlócai béke, a török kiűzése
     // 1699
     // leiras:
-    "",
+    "A béke a törököket a Magyar Királyság területéről kiűző Habsburg–török háborút zárta le, amely török vereséggel zárult.",
     // ------------------------------
 
     // a Rákóczi-szabadságharc
     // 1703:1711
     // leiras:
-    "",
+    "I. Lipót német-római császár és magyar király uralkodása egyre inkább abszolutista lett, erre válaszul, a nemesi mozgalom és a jobbágyfelkelés összekapcsolódásával jött létre II. Rákóczi Ferenc vezetésével.",
     // ------------------------------
 
     // az ónódi országgyűlés
     // 1707
     // leiras:
-    "",
+    "Az országgyűlés a független magyar állam létezését volt hivatott bizonyítani. Ezen történt többek közt a Habsburg-ház trónfosztása.",
     // ------------------------------
 
     // a szatmári béke
     // 1711
     // leiras:
-    "",
+    "A Rákóczi-szabadságot záró kompromisszumos béke, melyben a fegyvert letevő kurucok amnesztiát kaptak.",
     // ------------------------------
 
     // Pragmatica Sanctio elfogadása a magyar országgyűlésen
     // 1723
     // leiras:
-    "",
+    "III. Károly törvénye (többek között) a leányági örökösödés elfogadásáról, Mária Terézia hatalomra kerülésének előfeltétele volt.",
     // ------------------------------
 
     // Tata az Esterházyak birtoka lett
@@ -669,37 +669,37 @@ const LEIRASOK_DATA = [
     // Mária Terézia uralkodása
     // 1740:1780
     // leiras:
-    "",
+    "Felvilágosult abszolutista uralkodónak is hívják: a modernizációs célajit  rendeleti kormányzással valósította meg.",
     // ------------------------------
 
     // Úrbéri rendelet
     // 1767
     // leiras:
-    "",
+    "Mária Terézia jobbágy-földesúri viszonyt szabályozó rendelete: meghatározta a maximális jobbágyi terheket, elvárta a jobbágyi terhek (falunkénti) és a jobbágytelkek határainak rögzítését.",
     // ------------------------------
 
     // Ratio Educationis
     // 1777
     // leiras:
-    "",
+    "Az első állami oktatásügyi szabályozás, ösztönözte az iskolalátogatást, de nem vezette be a tankötelezettséget. (Mária Terézia)",
     // ------------------------------
 
     // II. József (kalapos király) uralkodása
     // 1780:1790
     // leiras:
-    "",
+    "Felvilágosult abszolutista uralkodó.",
     // ------------------------------
 
     // Türelmi rendelet
     // 1781
     // leiras:
-    "",
+    "A protestánsok és ortodoxok szabadon gyakorolhatták a vallásukat. (II. József)",
     // ------------------------------
 
     // Magyarországi népszámlálás
     // 1784
     // leiras:
-    "Az első ",
+    "Az első teljes területre kiterjedő népszámlálás és birtokösszesítés, új adórendszer bevezetése lehetett a célja. (II. József)",
     // ------------------------------
 
     // 4. A) Egyetemes újkor - 1789 - 1914
