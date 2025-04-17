@@ -429,19 +429,19 @@ const LEIRASOK_DATA = [
     // Újkor kezdete. Amerika felfedezése - Kolombusz
     // 1492
     // leiras:
-    "",
+    "Amerika felfedezése.",
     // ------------------------------
 
     // A reformáció kezdete - Luther Márton
     // 1517
     // leiras:
-    "",
+    "A katolikus egyház megújulására törekvő mozgalom, egyházszakadáshoz és a protestánt egyházak létrejöttéhez vezetett.",
     // ------------------------------
 
     // Augsburgi vallásbéke
     // 1555
     // leiras:
-    "",
+    "A Német-római Birodalomban a reformáció miatt dúló  vallásháborúkat zárta le. Az evangélikus egyház egyenjogú lett a katolikussal.",
     // ------------------------------
 
     // Hernán Cortés meghódítja Mexikót
@@ -453,79 +453,79 @@ const LEIRASOK_DATA = [
     // Tridenti zsinat
     // 1545:1563
     // leiras:
-    "",
+    "A reformáció miatt, az egyházszakadást volt hivatott megakadályozni. Fontos katolikus reformok születtek itt.",
     // ------------------------------
 
     // a harmincéves háború
     // 1618:1648
     // leiras:
-    "",
+    "A háború a cseh felkelés után az északi protestáns és déli katolikus német területek közt folyt. A katolikus Habsburgokkal és szemben először protestáns uralkodók, majd a katolikus Franciaország is hadba lépett az északaikat támogatva, bizonyítva, hogy ez inkább nagyhatalmi háború volt.",
     // ------------------------------
 
     // a vesztfáliai békék
     // 1648
     // leiras:
-    "",
+    "A harmincéves háborút zárta le, és évtizedekre kialakította Európa hatalmi viszonyait.",
     // ------------------------------
 
     // XIV. Lajos uralkodása
     // 1643:1715
     // leiras:
-    "",
+    "A spanyol öröködósödési háború alatt a Habsburg I. Lipót ellen indulú francia király.",
     // ------------------------------
 
     // az angol Jognyilatkozat kiadása
     // 1689
     // leiras:
-    "",
+    "Az abszolutizmust megszűntető polgárháború lezárása, az ezután kialakult kormányzati formát hívjuk alkotmányos monarchiának, illetve parlamentarizmusnak (a törvényhozó testület szerepe miatt).",
     // ------------------------------
 
     // spanyol örökösödési háború
     // 1701:1714
     // leiras:
-    "",
+    "A Habsburgok spanyol ágának kihalása után I. Lipót és XIV. Lajos (francia király) küzdöttek a spanyol trónért.",
     // ------------------------------
 
     // Perzsa levelek - Montesquieu
     // 1721
     // leiras:
-    "",
+    "A modern alkotmányosság elméleti megalapozója. Az állam hataémát a három hatalmi ág jelenti (törvényhozás, végrehajtás, igazságszolgáltatás).",
     // ------------------------------
 
     // francia Enciklopédia kiadása, 35 kötetben
     // 1751:1780
     // leiras:
-    "",
+    "Célja az általános emberi tudás összegyűjtése volt.",
     // ------------------------------
 
     // osztrák örökösödési háború
     // 1740:1748
     // leiras:
-    "",
+    "Mária Terézia trónralépése után tört ki, a Habsburg Birodalom trónját örökölni kívánó urolkodók elutasították a Pragmatica Sanctioban megfogalmazott leányági örökösödést.",
     // ------------------------------
 
     // a hétéves háború
     // 1756:1763
     // leiras:
-    "",
+    "Európából kiinduló globális konfliktus, melyben a szembenálló felek (részben amerikai) gyarmatokért és a hatalmi pozíciójuk erősítéséért harcoltak. Nagy-Britannia nagyrészt kiszorította Franciaországot Amerikából.",
     // ------------------------------
 
     // James Watt gőzgép
     // 1769
     // leiras:
-    "",
+    "Ettől számítjuk az ipari forradalom kezdetét, melyben szinte kizárólagos energia ellátó volt, forradalmasította a közlekedést is.",
     // ------------------------------
 
     // az amerikai Függetlenségi nyilatkozat kiadása, az USA létrejötte
     // 1776.7.4
     // leiras:
-    "",
+    "A Nagy-Britannia elleni lázadásban egyesült államok ebben mondták ki függetlenségüket a felvilágosodás államelméleteivel alátámasztva.",
     // ------------------------------
 
     // USA alkotmány
     // 1787
     // leiras:
-    "",
+    "A világ legrégebben írt alkotmánya, az alapvető jogokat és az államszervezet működését írja le.",
     // ------------------------------
 
     // 3. B) Magyar koraújkor
@@ -567,7 +567,7 @@ const LEIRASOK_DATA = [
     // Tordai határozat - vallásbéke
     // 1568
     // leiras:
-    "",
+    "Az egyes közösségek maguk dönthették el, melyik egyházhoz tartoznak. Lehetővé tette a protestáns egyházak megjelenését Edrélyben. Jóváhagyott vallás volt a katolikus, evangélikus, református és az unitárius (az ortodox nem). Inkább vallási türelem volt, mint vallásszabadság.",
     // ------------------------------
 
     // Speyeri szerződés, Erdélyi Fejedelemség
@@ -699,7 +699,7 @@ const LEIRASOK_DATA = [
     // Magyarországi népszámlálás
     // 1784
     // leiras:
-    "",
+    "Az első ",
     // ------------------------------
 
     // 4. A) Egyetemes újkor - 1789 - 1914
