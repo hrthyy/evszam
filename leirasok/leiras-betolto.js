@@ -24,7 +24,9 @@ function load_table() {
             if (desc != "[NINCS]") {
                 new_card += '<p class="leiras-card-text">';
                 if (desc) {new_card += LEIRASOK_DATA[i];}
-                else {new_card += '<i>Még nincs leírás...</i>'}
+                else {
+                    //inkabb nem ir semmit //new_card += '<i>Még nincs leírás...</i>'
+                    }
                 
                 new_card += '</p>';
             }
@@ -107,7 +109,6 @@ function leading_zero(date) {
 
 function filter_search() {
     let txt = document.getElementById('leiras-search').value.toLowerCase().trim();
-
 
     if (!txt) { // ha nincs beirva semmi az egyenlo egy resettel
         clear_search();
